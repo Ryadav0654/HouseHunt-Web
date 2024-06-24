@@ -1,0 +1,64 @@
+
+<nav
+  class="navbar navbar-expand-lg bg-body-light border-bottom position-sticky top-0"
+>
+  <div class="container-fluid nav-logo nav-main">
+    <a class="navbar-brand" href="/listings"
+      ><i class="fa-regular fa-compass navbar-icon"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link fw-medium" href="/listings">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <input
+          class="form-control me-2 px-5 py-2 search-inp"
+          type="search"
+          placeholder="Search your destination"
+          aria-label="Search"
+        />
+        <button class="btn px-3 py-2 search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link mx-2" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser){ %>
+          <ul class="navbar-nav ">
+            <li class="nav-item dropdown user-list">
+            <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="user-span"> 
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-circle-user"></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu dd-menu">
+              <li><a class="dropdown-item" href="/signup">SignUp</a></li>
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+            </ul>
+          </li>
+          </ul>
+        <!-- <a class="nav-link fw-bold " role="button" href="/signup">SignUp</a>
+        <a class="nav-link fw-bold " role="button" href="/login">Login</a> -->
+        <% } %> <% if(currUser){ %>
+        <a class="nav-link fw-medium mx-1 btn search-btn px-3" role="button" href="/logout"
+          >Logout</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+

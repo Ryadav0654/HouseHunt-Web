@@ -1,0 +1,109 @@
+<% layout("./layouts/boilerplate") %>
+
+<body>
+  <div class="row">
+  <div class="col-8 offset-2">
+  <h2 class="mb-3 mt-2 fs-1 fw-bold">Edit your Details</h2>
+  <form
+    action="/listings/<%= listing._id %>?_method=PUT"
+    method="POST"
+    novalidate
+    class="needs-validation"
+    enctype="multipart/form-data"
+  >
+    <div class="mb-2">
+      <label for="title" class="form-label fw-semibold">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="listing[title]"
+        required
+        value="<%= listing.title %>"
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a short title.</p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="description" class="form-label fw-semibold"
+        >Description</label
+      >
+      <textarea
+        name="listing[description]"
+        id="description"
+        class="form-control"
+        required
+      ><%= listing.description %></textarea>
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a short description.</p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <img src="<%=originalImageUrl%>" alt="image">
+    </div>
+    <div class="mb-2">
+      <label for="image" class="form-label fw-semibold">Image link/URL</label>
+      <input
+        type="file"
+        class="form-control"
+        name="listing[image]"
+        id="image"  
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid image URL/link.</p>
+      </div>
+    </div>
+    
+    <div class="mb-2">
+      <label for="location" class="form-label fw-semibold">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="listing[location]"
+        required
+        value="<%= listing.location %>"
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid location.</p>
+      </div>
+    </div>
+    <div class="row row-cols-lg-2 row-cols-md-1">
+    <div class="mb-3">
+      <label for="price" class="form-label fw-semibold">Price</label>
+      <input
+        type="number"
+        name="listing[price]"
+        value="<%= listing.price %>"
+        required
+        class="form-control"
+        id="price"
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid price.</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="country" class="form-label fw-semibold">Country</label>
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        name="listing[country]"
+        required
+        value="<%= listing.country %>"
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid country.</p>
+      </div>
+    </div>
+  </div>
+    <button type="submit" class="btn btn-primary mb-3 fw-semibold">
+      Submit
+    </button>
+  </form>
+  </div>
+  </div>
+  <!-- <script src="/public/js/script.js"></script> -->
+</body>

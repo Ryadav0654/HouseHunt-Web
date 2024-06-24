@@ -1,0 +1,101 @@
+<% layout("./layouts/boilerplate") %>
+
+<body>
+  
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h2 class="mb-3 mt-2 fs-1 fw-bold">Enter your Details</h2>
+  <form action="/listings" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+    <div class="mb-2">
+      <label for="title" class="form-label fw-semibold">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="listing[title]"
+        placeholder="Enter the title"
+        required
+      />
+      <div class="valid-feedback">
+        <p class="fw-medium">Title looks good!</p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="description" class="form-label fw-semibold"
+        >Description</label
+      >
+      <textarea
+        name="listing[description]"
+        id="description"
+        class="form-control"
+        placeholder="Enter the Description"
+        required
+      ></textarea>
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a short description.</p>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="image" class="form-label fw-semibold">Upload Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        name="listing[image]"
+       required
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid image.</p>
+      </div>
+    </div>
+    
+    <div class="mb-2">
+      <label for="location" class="form-label fw-semibold">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="listing[location]"
+        placeholder="Prayagraj, Uttar Pradesh"
+        required
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid location.</p>
+      </div>
+    </div>
+    <div class="row row-cols-lg-2 row-cols-md-1">
+    <div class="mb-3 col-6">
+      <label for="price" class="form-label fw-semibold">Price</label>
+      <input
+        type="number"
+        name="listing[price]"
+        placeholder="1200"
+        class="form-control"
+        id="price"
+        required
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid price.</p>
+      </div>
+    </div>
+    <div class="mb-3 col-6">
+      <label for="country" class="form-label fw-semibold">Country</label>
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        name="listing[country]"
+        placeholder="India"
+        required
+      />
+      <div class="invalid-feedback">
+        <p class="fw-medium">Please provide a valid country.</p>
+      </div>
+    </div>
+  </div>
+    <button type="submit" class="btn btn-primary mb-2 fw-semibold">Add</button>
+  </form>
+</div>
+</div>
+  <!-- <script src="/public/js/script.js"></script> -->
+</body>

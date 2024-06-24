@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <div id="filters" class="px-4 pt-3">
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-fire"></i>
+      </div>
+      <p class="fw-medium">Trending</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-bed"></i>
+      </div>
+      <p class="fw-medium">Room</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-mountain"></i>
+      </div>
+      <p class="fw-medium">Mountain</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-mountain-city"></i>
+      </div>
+      <p class="fw-medium">Island</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-brands fa-fort-awesome"></i>
+      </div>
+      <p class="fw-medium">Castles</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-person-swimming"></i>
+      </div>
+      <p class="fw-medium">Amazing Pool</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-campground"></i>
+      </div>
+      <p class="fw-medium">Camping</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-cow"></i>
+      </div>
+      <p class="fw-medium">Farms</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-snowflake"></i>
+      </div>
+      <p class="fw-medium">Arctic</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-water"></i>
+      </div>
+      <p class="fw-medium">Desert</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-tower-observation"></i>
+      </div>
+      <p class="fw-medium">Tower</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-eye"></i>
+      </div>
+      <p class="fw-medium">Amazing Views</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-water"></i>
+      </div>
+      <p class="fw-medium">Lake</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-tree-city"></i>
+      </div>
+      <p class="fw-medium">Treehouse</p>
+    </div>
+    <div class="filter">
+      <div>
+        <i class="fa-solid fa-umbrella-beach"></i>
+      </div>
+      <p class="fw-medium">Beachfront</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-4">
+      <%for(let listing of allListings){ %>
+      <div class="col p-3 card-info">
+        <a href="/listings/<%= listing._id %>">
+          <div class="card">
+            <img
+              src="<%= listing.image.url %>"
+              class="card-img-top"
+              style="height: 20rem"
+              alt="listing_image"
+            />
+            <div class="card-body p-0">
+              <p class="card-text">
+                <b><%= listing.title %></b> <br />
+                &#8377; <%=listing.price%> /night
+              </p>
+            </div>
+          </div></a
+        >
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- </div> -->
+</body>
