@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
 <body>
-  <div id="filters" class="px-4 pt-3">
+  <div id="filters" class="px-4 pt-3 d-flex">
     <div class="filter">
       <div>
         <i class="fa-solid fa-fire"></i>
@@ -94,10 +94,11 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container container-fluid">
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-4">
+     
       <%for(let listing of allListings){ %>
-      <div class="col p-3 card-info">
+      <div class="col-xs-12 p-3 card-info col-sm-6 col-md-6 col-lg-4">
         <a href="/listings/<%= listing._id %>">
           <div class="card">
             <img

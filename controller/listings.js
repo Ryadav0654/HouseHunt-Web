@@ -77,7 +77,7 @@ const updateListing = async (req, res) => {
 
 const deleteListing = async (req, res) => {
   let { id } = req.params;
-  const deletedListing = await Listing.findByIdAndDelete(id);
+   await Listing.findByIdAndDelete(id);
   // console.log(deletedListing);
   req.flash("success", "Listing Deleted!");
   res.redirect("/listings");

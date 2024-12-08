@@ -17,3 +17,15 @@
     }, false)
   })
 })()
+
+
+let searchInput = document.getElementById('search-input');
+let searchBtn = document.querySelector('.search-btn');
+
+
+searchBtn.addEventListener('click', () => {
+
+  console.log(searchInput.value);
+  searchInput.value = '';
+})
+
