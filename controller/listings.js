@@ -1,7 +1,5 @@
 const Listing = require("../models/listing.js");
-const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
-const mapToken = process.env.MAP_TOKEN;
-const geocodingClient = mbxGeocoding({ accessToken: mapToken });
+const axios = require("axios");
 
 const showAllListings = async (req, res) => {
   const allListings = await Listing.find({});
@@ -26,25 +24,30 @@ const showListing = async (req, res) => {
 };
 
 const createNewListing = async (req, res, next) => {
-  let coordinate = await geocodingClient
-    .forwardGeocode({
-      query: req.body.listing.location,
+  const location = req.body.listing.location;
+
+  const geoRes = await axios.get("https://nominatim.openstreetmap.org/search", {
+    params: {
+      q: location,
+      format: "json",
       limit: 1,
-    })
-    .send();
+    },
+    headers: {
+      "User-Agent": "househunt/1.0 (househunt@info.com)",
+    },
+  });
 
-  // console.log(coordinate.body.features[0].geometry);
-  // res.send("done!");
+  const { lat, lon } = geoRes.data[0];
 
-  let url = req.file.path;
-  let filename = req.file.filename;
-  let newListing = new Listing(req.body.listing);
+  const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
-  // console.log(`url: ${url} and filename: ${filename}`);
-  newListing.image = { url, filename };
-  newListing.geometry = coordinate.body.features[0].geometry;
+  newListing.image = { url: req.file.path, filename: req.file.filename };
+  newListing.geometry = {
+    type: "Point",
+    coordinates: [lon, lat],
+  };
+
   await newListing.save();
-  // console.log(savedlisting);
   req.flash("success", "New Listing Added!");
   res.redirect("/listings");
 };

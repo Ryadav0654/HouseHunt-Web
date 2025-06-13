@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8080;
 
-const dbUrl = process.env.ATLASDB_URL || process.env.MONGODB_URL;
+const dbUrl = process.env.ATLASDB_URL;
 
 // define main function
 ;( async () => {
